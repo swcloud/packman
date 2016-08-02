@@ -121,9 +121,12 @@ var parseArgs = function parseArgs() {
   cli.addArgument(
     [ '-r', '--services_root' ],
     {
+      defaultValue: [],
+      action: 'append',
       help: 'The directory containing the rpc service proto definitions.\n' +
-            ' Should not be specified with -u/--zip_url, which clobbers this.',
-      dest: 'repoDir'
+            ' Can be specified multiple times. Should not be specified with\n' +
+            ' -u/--zip_url, which clobbers this.',
+      dest: 'repoDirs'
     }
   );
   cli.addArgument(
@@ -186,7 +189,7 @@ var parseArgs = function parseArgs() {
   cli.addArgument(
     [ '-g', '--is_google_api' ],
     {
-      defaultValue: true,
+      defaultValue: false,
       action: 'storeTrue',
       help: 'When set indicates that the API is an official google API.\n'
             + ' It means that there is a top-level "google" directory in'
@@ -267,13 +270,12 @@ var main = function main() {
   if (opts.outDir) {
     opts.outDir = path.resolve(opts.outDir);
   }
-  if (opts.repoDir) {
-    opts.repoDir = path.resolve(opts.repoDir);
-  }
+  opts.repoDirs = opts.repoDirs.map(function(p) {
+   return path.resolve(p);
+  });
   if (opts.gaxDir) {
     opts.gaxDir = path.resolve(opts.gaxDir);
-    opts.isGoogleApi = true;
-    opts.pkgPrefix = 'gax-google-';
+    opts.pkgPrefix = 'gax-';
     opts.outDir = opts.gaxDir;
   }
   if (!opts.apiName) {
