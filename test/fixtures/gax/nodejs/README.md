@@ -1,18 +1,18 @@
-Google {{{api.titlename}}} API for Node.js
+Google Packager Unittest API for Node.js
 =================================================
 
-{{{api.name}}} uses [Google API extensions][google-gax] to provide an
-easy-to-use client library for the [Google {{{api.titlename}}} API][] ({{{api.version}}}) defined in the [googleapis][] git repository
+@google-cloud/unittest uses [Google API extensions][google-gax] to provide an
+easy-to-use client library for the [Google Packager Unittest API][] (v2) defined in the [googleapis][] git repository
 
 
-[googleapis]: https://github.com/googleapis/googleapis/tree/master/google/{{{api.path}}}/{{{api.version}}}
+[googleapis]: https://github.com/googleapis/googleapis/tree/master/google/packager/unittest/v2
 [google-gax]: https://github.com/googleapis/gax-nodejs
-[Google {{{api.titlename}}} API]: https://developers.google.com/apis-explorer/#p/{{{api.shortname}}}/{{{api.version}}}/
+[Google Packager Unittest API]: https://developers.google.com/apis-explorer/#p/unittest/v2/
 
 Getting started
 ---------------
 
-{{{api.name}}} will allow you to connect to the [Google {{{api.titlename}}} API][] and access all its methods.
+@google-cloud/unittest will allow you to connect to the [Google Packager Unittest API][] and access all its methods.
 
 In order to do so, you need to set up authentication as well as install the library locally.
 
@@ -40,6 +40,6 @@ Installation
 
 Install this library using npm:
 
-    $ npm install {{{api.name}}}
+    $ npm install @google-cloud/unittest
 
 At this point you are all set to continue.
