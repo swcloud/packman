@@ -38,3 +38,9 @@ node_modules
 
 # Ctags
 tags
+
+# IntelliJ
+.idea
+*.iml
+*.ipr
+*.iws

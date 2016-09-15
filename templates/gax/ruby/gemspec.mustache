@@ -16,10 +16,11 @@ Gem::Specification.new do |s|
   s.platform      = Gem::Platform::RUBY
   s.require_paths = ['lib']
   s.required_ruby_version = '>= 2.0.0'
-  s.summary       = 'GAX library for the {{{api.simplename}}}-{{{api.version}}} service'
+  s.summary       = 'Google client library for the {{{api.titlename}}} service'
 
   s.add_dependency 'google-gax', '~> {{{dependencies.gax.ruby.version}}}'
-  s.add_dependency '{{{api.dependsOn}}}-{{{api.version}}}', '~>{{{api.semantic_version}}}'
+  s.add_dependency 'grpc', '~> {{{dependencies.grpc.ruby.version}}}'
+  s.add_dependency 'googleauth', '~> {{{dependencies.auth.ruby.version}}}'
   s.add_dependency 'googleapis-common-protos', '~> {{{dependencies.googleapis_common_protos.ruby.version}}}'
 
   s.add_development_dependency 'bundler', '~> 1.9'
