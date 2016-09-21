@@ -1,4 +1,4 @@
-"""A setup module for the GAX {{{api.titlename}}} library.
+"""A setup module for the GAPIC {{{api.titlename}}} library.
 
 See:
 https://packaging.python.org/en/latest/distributing.html
@@ -9,10 +9,11 @@ from setuptools import setup, find_packages
 import sys
 
 install_requires = [
-    'googleapis-common-protos>={{{dependencies.googleapis_common_protos.python.version}}}',
+    'googleapis-common-protos>={{{dependencies.googleapis_common_protos.python.version}}}, <{{{dependencies.googleapis_common_protos.python.next_version}}}',
     'google-gax>={{{dependencies.gax.python.version}}}, <{{{dependencies.gax.python.next_version}}}',
+    # TODO (https://github.com/googleapis/packman/issues/119): need upper bound logic
     '{{{api.dependsOn}}}-{{{api.version}}}>={{{api.semantic_version}}}',
-    'oauth2client>={{{dependencies.auth.python.version}}}',
+    'oauth2client>={{{dependencies.auth.python.version}}}, <{{{dependencies.auth.python.next_version}}}',
 ]
 
 setup(
@@ -29,7 +30,7 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
-    description='GAX library for the Google {{{api.titlename}}} API',
+    description='GAPIC library for the Google {{{api.titlename}}} API',
     include_package_data=True,
     long_description=open('README.rst').read(),
     install_requires=install_requires,
