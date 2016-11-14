@@ -51,19 +51,23 @@ protobuf {
     grpc {
       artifact = 'io.grpc:protoc-gen-grpc-java:{{{dependencies.grpc.java.version}}}'
     }
+    {{#api.useGapicPlugin}}
     gapic {
       path = locateGapicPluginMethod()
     }
+    {{/api.useGapicPlugin}}
   }
   generateProtoTasks {
     all()*.plugins {
       grpc {
         outputSubDir = 'java'
       }
+      {{#api.useGapicPlugin}}
       gapic {
         outputSubDir = 'java'
         option '{{{api.gapicYaml}}}'
       }
+      {{/api.useGapicPlugin}}
     }
   }
 }
